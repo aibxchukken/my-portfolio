@@ -1,0 +1,238 @@
+/* --- Core Reset --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+body {
+    background: #0b0b0b;
+    color: white;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+/* --- Keyframe Animations --- */
+
+@keyframes neonGlow {
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* --- Header & 3D Title --- */
+
+header {
+    text-align: center;
+    padding: 120px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid #00ffff;
+    margin-bottom: 25px;
+    object-fit: cover;
+    animation: neonGlow 3s infinite ease-in-out;
+}
+
+h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    color: white;
+    /* 3D Stacked Shadow */
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 0 10px #00ffff, 0 0 20px #00ffff;
+    transform: rotateX(15deg);
+    transition: transform 0.5s ease;
+}
+
+h1:hover {
+    transform: rotateX(0deg) scale(1.05);
+    text-shadow: 0 0 30px #00ffff, 0 0 50px #00ffff;
+}
+
+
+/* --- Centered Neon Section Headings --- */
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 50px 0 30px;
+    color: #fff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    transform: rotateX(10deg);
+}
+
+
+/* --- Skills: Neon Mousepad Effect --- */
+
+.skills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill {
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid #00ffff;
+    border-radius: 25px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: crosshair;
+}
+
+.skill:hover {
+    background: #00ffff;
+    color: #000;
+    transform: translateY(-8px) scale(1.1);
+    /* Neon "Mousepad" Shadow */
+    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.6);
+}
+
+
+/* --- Projects: Fixed 3D Grid --- */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    width: 100%;
+    padding: 40px 10%;
+    perspective: 1200px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s;
+    transform-style: preserve-3d;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card:hover {
+    transform: rotateX(10deg) rotateY(-5deg) translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 255, 255, 0.3);
+    border: 1px solid #00ffff;
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+
+/* --- Links & Buttons --- */
+
+.contact-links {
+    margin-bottom: 20px;
+}
+
+.contact-links a {
+    color: #00ffff;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    color: white;
+    text-shadow: 0 0 15px #00ffff;
+}
+
+.insta-btn {
+    display: inline-block;
+    margin: 0 20px 20px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #e1306c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.insta-btn:hover {
+    background: #e1306c;
+    box-shadow: 0 0 15px #e1306c;
+}
+
+.resume {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 45px;
+    background: #00ffff;
+    color: #000;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: bold;
+    animation: float 4s infinite ease-in-out;
+    transition: 0.4s;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #00ffff;
+    background: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
