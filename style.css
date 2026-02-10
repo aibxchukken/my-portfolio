@@ -1,0 +1,539 @@
+/* =========================
+   GLOBAL RESET & VARIABLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+:root {
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --accent: #2ecc71;
+    --neon: #00ffff;
+    --accent-glow: rgba(46, 204, 113, 0.4);
+    --text: #ffffff;
+}
+
+body {
+    background: var(--dark-bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 12% 5%;
+    background: radial-gradient(circle at 75% 30%, var(--accent-glow), transparent 35%);
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 4rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--accent), #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.2rem;
+    background: linear-gradient(45deg, var(--accent), #27aec0);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.4s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px var(--accent-glow);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+
+/* =========================
+   PROFILE IMAGE & ANIMATIONS
+========================= */
+
+.profile-img {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--neon);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    letter-spacing: 3px;
+    margin: 80px 0 40px;
+    color: #fff;
+    text-shadow: 0 0 15px var(--neon);
+}
+
+
+/* =========================
+   PERSONAL DETAILS
+========================= */
+
+.personal-details {
+    padding: 60px 10%;
+}
+
+.details-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.detail-item {
+    padding: 18px 22px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.35);
+}
+
+.detail-item .label {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 6px;
+}
+
+.detail-item .value {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--neon);
+}
+
+
+/* =========================
+   SKILLS SECTION
+========================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 0 10%;
+}
+
+.skill-card {
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    transition: 0.4s;
+    text-align: center;
+}
+
+.skill-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.4);
+    border-color: var(--neon);
+}
+
+.skill-card i {
+    font-size: 2.8rem;
+    color: var(--neon);
+    margin-bottom: 1rem;
+}
+
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px 10%;
+    perspective: 1200px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    transition: 0.6s;
+    transform-style: preserve-3d;
+}
+
+.project-card:hover {
+    transform: rotateX(10deg) rotateY(-6deg) translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0, 255, 255, 0.35);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+
+/* =========================
+   BUTTONS & LINKS
+========================= */
+
+
+/* =========================
+   BUTTONS & LINKS
+========================= */
+
+
+/* =========================
+   BUTTONS & LINKS
+========================= */
+
+
+/* =========================
+   BUTTONS & LINKS
+========================= */
+
+
+/* =========================
+   BUTTONS & LINKS
+========================= */
+
+.insta-btn,
+.btn {
+    display: block;
+    width: 220px;
+    /* CONTROL WIDTH */
+    margin: 20px auto;
+    /* CENTER */
+    text-align: center;
+}
+
+
+/* Instagram Button */
+
+
+/* =========================
+   BUTTONS & LINKS
+========================= */
+
+.insta-btn,
+.btn {
+    display: block;
+    width: 220px;
+    margin: 20px auto;
+    text-align: center;
+    text-decoration: none;
+    /* REMOVE UNDERLINE */
+}
+
+
+/* Instagram Button */
+
+.insta-btn {
+    padding: 12px 0;
+    border: 1px solid #e1306c;
+    border-radius: 10px;
+    color: white;
+    background: rgba(225, 48, 108, 0.15);
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.6);
+    transition: 0.3s ease;
+}
+
+.insta-btn:hover {
+    background: #e1306c;
+    box-shadow: 0 0 25px #e1306c, 0 0 45px #e1306c;
+}
+
+
+/* Resume Button */
+
+.btn {
+    padding: 14px 0;
+    background: var(--neon);
+    color: #000;
+    border-radius: 35px;
+    font-weight: bold;
+    box-shadow: 0 0 20px var(--neon);
+    transition: 0.4s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px var(--neon), 0 0 60px var(--neon);
+}
+
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.contact-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 200px;
+    justify-content: center;
+    padding: 14px 0;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(0, 255, 255, 0.12);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    transition: 0.3s ease;
+}
+
+.contact-btn i {
+    font-size: 1.2rem;
+}
+
+.contact-btn:hover {
+    background: var(--neon);
+    color: #000;
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px var(--neon);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: var(--darker-bg);
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(141, 34, 34, 0.08);
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--neon);
+    transform: translateY(-4px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 9rem;
+    }
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 3rem;
+    }
+    .profile-img {
+        width: 260px;
+        height: 260px;
+    }
+    .nav-links {
+        display: none;
+    }
+}
+
+
+/* =========================
+   HERO BUTTON GROUP (ADD-ON)
+   (Works with existing hero)
+========================= */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+    align-items: center;
+}
+
+
+/* Hero Instagram / Social Buttons */
+
+.hero-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    text-decoration: none;
+    /* ENSURE NO UNDERLINE */
+    color: #fff;
+    font-size: 0.95rem;
+    border: 1px solid #e1306c;
+    background: rgba(225, 48, 108, 0.15);
+    box-shadow: 0 0 14px rgba(225, 48, 108, 0.5);
+    transition: 0.3s ease;
+}
+
+.hero-social:hover {
+    background: #e1306c;
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px #e1306c, 0 0 45px #e1306c;
+}
+
+
+/* =========================
+   FIX UNDERLINES GLOBALLY
+========================= */
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================
+   MOBILE HERO BUTTON ALIGN
+========================= */
+
+@media (max-width: 768px) {
+    .hero-buttons {
+        justify-content: center;
+    }
+}
