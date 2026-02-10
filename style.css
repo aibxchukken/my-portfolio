@@ -537,3 +537,7 @@ a {
         justify-content: center;
     }
 }
+
+canvas {
+    touch-action: none;
+}

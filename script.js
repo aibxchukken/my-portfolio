@@ -141,3 +141,28 @@ window.addEventListener("resize", () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+/* =========================
+   TOUCH SUPPORT (MOBILE FIX)
+========================= */
+document.addEventListener("touchmove", e => {
+    const touch = e.touches[0];
+    targetX = (touch.clientX / window.innerWidth - 0.5) * 2;
+    targetY = (touch.clientY / window.innerHeight - 0.5) * 2;
+}, { passive: true });
+
+/* =========================
+   MOBILE PERFORMANCE FIX
+========================= */
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
+// Update the existing shape geometry based on device
+shape.geometry = isMobile ?
+    new THREE.TorusGeometry(0.8, 0.25, 16, 50) :
+    new THREE.TorusKnotGeometry(0.8, 0.3, 120, 16);
+
+// Shape already added to scene above
+shape.needsUpdate = true;
+
+renderer.setAnimationLoop(animate);
