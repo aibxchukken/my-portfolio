@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>AIBX </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
     <!-- Font Awesome -->
@@ -20,26 +20,36 @@
 </head>
 
 <body>
+    <div class="nav-overlay"></div>
 
     <!-- 3D Background -->
     <canvas id="bg"></canvas>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <a href="#home" class="nav-logo">AIBX</a>
 
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <body>
+        <!-- Nav overlay -->
+        <div class="nav-overlay"></div>
 
-        <div class="menu-toggle" id="menu-toggle">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
+        <nav class="navbar">
+            <a href="#home" class="nav-logo">AIBX</a>
+
+            <!-- Hamburger button -->
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </body>
 
     <!-- Hero Section -->
     <section id="home" class="hero">

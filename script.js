@@ -1,3 +1,20 @@
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const navOverlay = document.querySelector('.nav-overlay');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active'); // animate hamburger
+    navLinks.classList.toggle('active'); // show nav
+    navOverlay.classList.toggle('active'); // show overlay
+});
+
+// Close nav if clicking outside (overlay)
+navOverlay.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    navOverlay.classList.remove('active');
+});
+
 /* =========================
    SMOOTH SCROLL
 ========================= */
@@ -166,9 +183,3 @@ shape.geometry = isMobile ?
 shape.needsUpdate = true;
 
 renderer.setAnimationLoop(animate);
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
-
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
