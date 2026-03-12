@@ -32,6 +32,57 @@ canvas {
     z-index: -1;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+
+/* Tablet */
+
+@media (max-width:1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        padding-right: 0;
+    }
+    .profile-img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width:768px) {
+    .hero {
+        padding-top: 8rem;
+    }
+    .profile-img {
+        width: 240px;
+        height: 240px;
+    }
+    .nav-links {
+        display: none;
+    }
+}
+
 
 /* =========================
    NAVIGATION BAR
@@ -566,200 +617,60 @@ a {
 
 
 /* =========================
-   MOBILE
+   MOBILE NAVIGATION
 ========================= */
 
-@media(max-width:768px) {
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* Tablet */
+
+@media (max-width:1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        padding-right: 0;
+    }
+    .profile-img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width:768px) {
+    .menu-toggle {
+        display: block;
+    }
     .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #0a0a0a;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
         display: none;
     }
+    .nav-links.active {
+        display: flex;
+    }
     .hero {
-        padding-top: 140px;
+        padding-top: 8rem;
     }
     .profile-img {
         width: 240px;
         height: 240px;
     }
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    .contact-links {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
-/* =========================
-   AUTO RESPONSIVE TYPOGRAPHY
-========================= */
-
-h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
-}
-
-h2 {
-    font-size: clamp(1.6rem, 4vw, 2.6rem);
-}
-
-h3 {
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-}
-
-p {
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    line-height: 1.7;
-}
-
-
-/* =========================
-   AUTO SECTION SPACING
-========================= */
-
-section {
-    padding-left: clamp(20px, 6vw, 10%);
-    padding-right: clamp(20px, 6vw, 10%);
-}
-
-
-/* =========================
-   RESPONSIVE BUTTONS
-========================= */
-
-.btn,
-.insta-btn {
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-    padding: clamp(10px, 1.2vw, 14px) 0;
-    width: clamp(180px, 26vw, 220px);
-}
-
-
-/* =========================
-   PROFILE IMAGE AUTO SIZE
-========================= */
-
-.profile-img {
-    width: clamp(200px, 30vw, 380px);
-    height: clamp(200px, 30vw, 380px);
-}
-
-
-/* =========================
-   GRID AUTO RESPONSIVE
-========================= */
-
-.skills-grid,
-.projects-grid,
-.certificates-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-
-/* =========================
-   MOBILE OPTIMIZATION
-========================= */
-
-@media (max-width:768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 140px;
-    }
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 30px;
-    }
-    .hero-buttons {
-        justify-content: center;
-    }
-    .project-card,
-    .certificate-card {
-        max-width: 350px;
-        margin: auto;
-    }
-}
-
-
-/* =========================
-   SMALL MOBILE DEVICES
-========================= */
-
-@media (max-width:480px) {
-    h1 {
-        font-size: 2rem;
-    }
-    h2 {
-        font-size: 1.6rem;
-    }
-    .hero {
-        padding-top: 120px;
-    }
-    .btn,
-    .insta-btn {
-        width: 200px;
-    }
-}
-
-
-/* =========================
-   LARGE SCREEN OPTIMIZATION
-========================= */
-
-@media (min-width:1400px) {
-    .skills-grid,
-    .projects-grid,
-    .certificates-grid {
-        max-width: 1200px;
-        margin: auto;
-    }
-    .hero {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-}
-
-
-/* =========================
-   RESPONSIVE TYPOGRAPHY
-========================= */
-
-h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
-}
-
-h2 {
-    font-size: clamp(1.6rem, 4vw, 2.6rem);
-}
-
-h3 {
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-}
-
-p {
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    line-height: 1.7;
-}
-
-a {
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
-}
-
-section {
-    padding-left: clamp(20px, 6vw, 10%);
-    padding-right: clamp(20px, 6vw, 10%);
-}
-
-.btn,
-.insta-btn {
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-    padding: clamp(10px, 1.2vw, 14px) 0;
-    width: clamp(180px, 26vw, 220px);
-}
-
-.profile-img {
-    width: clamp(200px, 30vw, 380px);
-    height: clamp(200px, 30vw, 380px);
 }
